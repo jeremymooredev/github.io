@@ -129,13 +129,11 @@ const hasTags = tags.length > 0;
     color: #0f0f0f;
     font-weight: 600;
     border-color: #ff9500;
-    box-shadow: 0 0 8px rgba(255, 149, 0, 0.2);
   }
 
   .filter-button.active:hover {
     background-color: #ffab1a;
     border-color: #ffab1a;
-    box-shadow: 0 0 12px rgba(255, 149, 0, 0.3);
   }
 
   @media (max-width: 640px) {
@@ -154,6 +152,17 @@ const hasTags = tags.length > 0;
       flex: 1 1 auto;
       min-width: 70px;
       text-align: center;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .filter-list:not(.filter-list-tags) {
+      flex-direction: column;
+    }
+
+    .filter-list:not(.filter-list-tags) .filter-button {
+      min-width: auto;
+      width: 100%;
     }
   }
 </style>

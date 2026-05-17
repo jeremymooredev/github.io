@@ -17,24 +17,27 @@ const activeTags = getActiveTags(sortedPosts);
 
 <Layout title="Jeremy Moore | Web Dev & Linux Tips" description="Practical tips and how-tos for developers at all levels">
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <section class="mb-12 max-w-4xl">
+    <section class="mb-16 max-w-4xl">
       <h1 class="text-4xl sm:text-5xl font-bold text-light-text mb-4">
         Web Development & Linux Tips
       </h1>
-      <p class="text-lg text-gray-400">
+      <p class="text-lg text-gray-400 max-w-prose mb-6">
         Practical tips and how-tos for developers at all levels. From beginner fundamentals to advanced techniques.
+      </p>
+      <p class="text-sm text-gray-500">
+        Browse posts below, or use the filters to explore by category
       </p>
     </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit">
-        <Sidebar categories={activeCategories} tags={activeTags} />
-      </div>
-
-      <div class="lg:col-span-3">
+      <div class="lg:col-span-3 order-first lg:order-none">
         <section>
           <PostList posts={sortedPosts} />
         </section>
+      </div>
+
+      <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit order-last lg:order-none">
+        <Sidebar categories={activeCategories} tags={activeTags} />
       </div>
     </div>
   </div>

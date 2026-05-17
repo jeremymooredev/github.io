@@ -77,6 +77,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
 
+  /* FormKit animation override — replace bounce with professional easing */
+  [class*="formkit"] {
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
   pre code {
     background-color: transparent;
     color: var(--color-light-text);
@@ -117,14 +122,12 @@ header {
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s;
     border: none;
-    box-shadow: 0 2px 4px rgba(255, 149, 0, 0.2);
   }
 
   .btn-primary:hover {
     background-color: #e68600;
-    box-shadow: 0 4px 8px rgba(255, 149, 0, 0.3);
   }
 
   .btn-primary:focus {

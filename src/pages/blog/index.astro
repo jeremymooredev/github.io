@@ -17,12 +17,15 @@ const activeTags = getActiveTags(sortedPosts);
 
 <Layout title="Blog | Jeremy Moore" description="Web development tips, Linux guides, and DevOps insights">
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit">
-        <Sidebar categories={activeCategories} tags={activeTags} />
-      </div>
+    <section class="mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold text-light-text mb-2">
+        Articles & Guides
+      </h1>
+      <p class="text-gray-400">Practical tips on Web Dev, Linux, and DevOps</p>
+    </section>
 
-      <div class="lg:col-span-3">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div class="lg:col-span-3 order-first lg:order-none">
         <section>
           {sortedPosts.length === 0 ? (
             <div class="text-center py-12">
@@ -32,6 +35,10 @@ const activeTags = getActiveTags(sortedPosts);
             <PostList posts={sortedPosts} />
           )}
         </section>
+      </div>
+
+      <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit order-last lg:order-none">
+        <Sidebar categories={activeCategories} tags={activeTags} />
       </div>
     </div>
   </div>
