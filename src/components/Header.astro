@@ -1,0 +1,62 @@
+---
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'About', href: '/about' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Reading', href: '/reading' },
+];
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (href: string): boolean => {
+  if (href === '/' && currentPath === '/') {
+    return true;
+  }
+  if (href !== '/' && currentPath.startsWith(href)) {
+    return true;
+  }
+  return false;
+};
+---
+
+<header class="sticky top-0 z-50 bg-dark border-b border-dark-border">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="text-2xl font-bold text-light-text hover:text-accent-orange transition duration-200"
+    >
+      Jeremy Moore
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex gap-8">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`transition duration-200 ${
+              isActive(item.href)
+                ? 'text-accent-orange font-semibold'
+                : 'text-light-text hover:text-accent-orange'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Mobile Hamburger Menu -->
+    <button class="md:hidden text-light-text hover:text-accent-orange transition duration-200">
+      ☰
+    </button>
+  </div>
+</header>
+
+<style>
+  header {
+    @apply sticky top-0 z-50 bg-dark border-b border-dark-border;
+  }
+</style>
