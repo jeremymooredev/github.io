@@ -14,10 +14,19 @@ export const SOCIAL_LINKS = {
 
 export const NEWSLETTER_CTA = {
   headline: 'Get web dev & Linux tips',
-  description: 'New tips delivered to your inbox every week',
+  description: 'New tips delivered to your inbox',
   placeholder: 'your@email.com',
   ctaText: 'Subscribe',
 };
+
+/** `data-uid` from Kit → Embed → JavaScript */
+export const KIT_FORM_UID = import.meta.env.PUBLIC_KIT_FORM_UID ?? '8562c4c14d';
+/** Host from the embed script src (e.g. jeremy-moore-dev.kit.com) */
+export const KIT_EMBED_HOST =
+  import.meta.env.PUBLIC_KIT_EMBED_HOST ?? 'jeremy-moore-dev.kit.com';
+
+export const kitFormUrl = `https://${KIT_EMBED_HOST}/${KIT_FORM_UID}`;
+export const kitEmbedSrc = `${kitFormUrl}/index.js`;
 
 export const CATEGORIES = [
   'Web Dev',

@@ -1,28 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BlogCard from '../components/BlogCard.astro';
+import PostList from '../components/PostList.astro';
 import Sidebar from '../components/Sidebar.astro';
-import { formatDate, extractExcerpt } from '../utils/formatting';
 import { getCollection } from 'astro:content';
+import { getActiveCategories, getActiveTags } from '../utils/posts';
 
-// Fetch all blog posts
 const allPosts = await getCollection('blog');
 
-// Sort by date (newest first)
 const sortedPosts = allPosts.sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
 
-// Get recent posts (first 10)
-const recent = sortedPosts.slice(0, 10).map(post => ({
-  ...post,
-  slug: post.id.replace(/\.md$/, '')
-}));
+const activeCategories = getActiveCategories(sortedPosts);
+const activeTags = getActiveTags(sortedPosts);
 ---
 
 <Layout title="Jeremy Moore | Web Dev & Linux Tips" description="Practical tips and how-tos for developers at all levels">
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <!-- Intro Section -->
     <section class="mb-12 max-w-4xl">
       <h1 class="text-4xl sm:text-5xl font-bold text-light-text mb-4">
         Web Development & Linux Tips
@@ -32,29 +26,14 @@ const recent = sortedPosts.slice(0, 10).map(post => ({
       </p>
     </section>
 
-    <!-- Main Grid Layout: Sidebar Left, Content Right -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <!-- Left Column: Sidebar -->
       <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit">
-        <Sidebar />
+        <Sidebar categories={activeCategories} tags={activeTags} />
       </div>
 
-      <!-- Right Column: Articles -->
       <div class="lg:col-span-3">
-        <!-- Articles Section -->
         <section>
-          <div class="space-y-6">
-            {recent.map((post) => (
-              <BlogCard
-                title={post.data.title}
-                excerpt={post.data.excerpt || extractExcerpt(post.body)}
-                date={post.data.date}
-                category={post.data.category}
-                image={post.data.image}
-                slug={post.slug}
-              />
-            ))}
-          </div>
+          <PostList posts={sortedPosts} />
         </section>
       </div>
     </div>

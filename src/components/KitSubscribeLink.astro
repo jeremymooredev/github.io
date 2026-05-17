@@ -1,0 +1,17 @@
+---
+import { KIT_FORM_UID, kitFormUrl, NEWSLETTER_CTA } from '../config';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a
+  data-formkit-toggle={KIT_FORM_UID}
+  href={kitFormUrl}
+  class:list={className}
+>
+  <slot>{NEWSLETTER_CTA.ctaText}</slot>
+</a>

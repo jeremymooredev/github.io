@@ -1,0 +1,51 @@
+---
+import BlogCard from './BlogCard.astro';
+import { extractExcerpt } from '../utils/formatting';
+import { getPostSlug } from '../utils/posts';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="post-list-wrapper">
+  <div id="post-list" class="space-y-6">
+    {
+      posts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          excerpt={post.data.excerpt || extractExcerpt(post.body)}
+          date={post.data.date}
+          category={post.data.category}
+          tags={post.data.tags}
+          image={post.data.image}
+          slug={getPostSlug(post)}
+        />
+      ))
+    }
+  </div>
+
+  <p id="post-list-empty" class="post-list-empty" hidden>
+    No posts match this filter.
+  </p>
+</div>
+
+<style>
+  .post-list-wrapper {
+    width: 100%;
+  }
+
+  .post-list-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #888888;
+    font-size: 1rem;
+  }
+
+  .post-list-empty[hidden] {
+    display: none;
+  }
+</style>

@@ -1,51 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import BlogCard from '../../components/BlogCard.astro';
+import PostList from '../../components/PostList.astro';
 import Sidebar from '../../components/Sidebar.astro';
-import { formatDate, getReadingTime, extractExcerpt } from '../../utils/formatting';
 import { getCollection } from 'astro:content';
+import { getActiveCategories, getActiveTags } from '../../utils/posts';
 
-// Fetch all blog posts
 const allPosts = await getCollection('blog');
 
-// Sort by date (newest first)
 const sortedPosts = allPosts.sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
+
+const activeCategories = getActiveCategories(sortedPosts);
+const activeTags = getActiveTags(sortedPosts);
 ---
 
 <Layout title="Blog | Jeremy Moore" description="Web development tips, Linux guides, and DevOps insights">
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <!-- Main Grid Layout: Sidebar Left, Content Right (same as homepage) -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <!-- Left Column: Sidebar -->
       <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit">
-        <Sidebar />
+        <Sidebar categories={activeCategories} tags={activeTags} />
       </div>
 
-      <!-- Right Column: Articles -->
       <div class="lg:col-span-3">
-        <!-- Articles Section -->
         <section>
-          <div class="space-y-6">
-            {sortedPosts.map((post) => (
-              <BlogCard
-                title={post.data.title}
-                excerpt={post.data.excerpt || extractExcerpt(post.body)}
-                date={post.data.date}
-                category={post.data.category}
-                image={post.data.image}
-                slug={post.slug}
-                readingTime={`${getReadingTime(post.body)} min read`}
-                tags={post.data.tags}
-              />
-            ))}
-          </div>
-
-          {sortedPosts.length === 0 && (
+          {sortedPosts.length === 0 ? (
             <div class="text-center py-12">
               <p class="text-gray-400 text-lg">No blog posts yet.</p>
             </div>
+          ) : (
+            <PostList posts={sortedPosts} />
           )}
         </section>
       </div>

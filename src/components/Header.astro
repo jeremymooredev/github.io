@@ -1,19 +1,22 @@
 ---
+import { withBase } from '../utils/paths';
+
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
-  { label: 'Resources', href: '/resources' },
-  { label: 'Reading', href: '/reading' },
+  { label: 'Home', href: withBase('/') },
+  { label: 'Blog', href: withBase('/blog') },
+  { label: 'About', href: withBase('/about') },
+  { label: 'Resources', href: withBase('/resources') },
+  { label: 'Reading', href: withBase('/reading') },
 ];
 
 const currentPath = Astro.url.pathname;
 
 const isActive = (href: string): boolean => {
-  if (href === '/' && currentPath === '/') {
+  const home = withBase('/');
+  if (href === home && (currentPath === home || currentPath === home.replace(/\/$/, ''))) {
     return true;
   }
-  if (href !== '/' && currentPath.startsWith(href)) {
+  if (href !== home && currentPath.startsWith(href)) {
     return true;
   }
   return false;
@@ -25,7 +28,7 @@ const isActive = (href: string): boolean => {
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a
-        href="/"
+        href={withBase('/')}
         class="text-xl sm:text-2xl font-bold text-light-text hover:text-accent-orange transition-colors duration-200 flex-shrink-0"
       >
         Jeremy Moore

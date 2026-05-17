@@ -1,5 +1,6 @@
 ---
 import { formatDate } from '../utils/formatting';
+import { withBase } from '../utils/paths';
 
 interface Props {
   title: string;
@@ -14,7 +15,7 @@ interface Props {
 const { title, excerpt, date, category, image, slug, readingTime } = Astro.props;
 ---
 
-<a href={`/blog/${slug}`} class="featured-card-link">
+<a href={withBase(`/blog/${slug}`)} class="featured-card-link">
   <div class="featured-card">
     {image && (
       <div class="featured-image-container">

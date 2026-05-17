@@ -4,9 +4,9 @@ description: "Moving around on the command line"
 date: 2025-01-15
 author: Jeremy Moore
 category: Web Dev
-tags: [astro, frontend, javascript, ssr]
+tags: []
 featured: true
-image: /images/astro-cover.jpg
+# image: /images/astro-cover.jpg
 excerpt: Discover the power of Astro 6 for building content-heavy websites with minimal JavaScript overhead.
 ---
  <!-- --- -->

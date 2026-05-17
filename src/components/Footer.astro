@@ -1,14 +1,16 @@
 ---
 import SocialLinks from './SocialLinks.astro';
+import KitSubscribeLink from './KitSubscribeLink.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import { withBase } from '../utils/paths';
 
 const currentYear = new Date().getFullYear();
 
 const quickLinks = [
-  { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
-  { label: 'Resources', href: '/resources' },
-  { label: 'Reading', href: '/reading' },
+  { label: 'Blog', href: withBase('/blog') },
+  { label: 'About', href: withBase('/about') },
+  { label: 'Resources', href: withBase('/resources') },
+  { label: 'Reading', href: withBase('/reading') },
 ];
 ---
 
@@ -47,6 +49,7 @@ const quickLinks = [
         <p class="text-gray-400 text-sm mb-4">
           Follow along for the latest updates and insights.
         </p>
+        <KitSubscribeLink class="btn-primary inline-block mb-4" />
         <SocialLinks size="md" />
       </div>
     </div>

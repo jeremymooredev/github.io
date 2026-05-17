@@ -1,19 +1,26 @@
 ---
 import { formatDate } from '../utils/formatting';
+import { withBase } from '../utils/paths';
 
 interface Props {
   title: string;
   excerpt: string;
   date: Date;
   category?: string;
+  tags?: string[];
   image?: string;
   slug: string;
 }
 
-const { title, excerpt, date, category, image, slug } = Astro.props;
+const { title, excerpt, date, category, tags = [], image, slug } = Astro.props;
 ---
 
-<a href={`/blog/${slug}`} class="blog-card-link">
+<a
+  href={withBase(`/blog/${slug}`)}
+  class="blog-card-link"
+  data-post-category={category ?? ''}
+  data-post-tags={tags.join(',')}
+>
   <article class="blog-card">
     <div class="blog-content">
       <h3 class="blog-title">{title}</h3>
