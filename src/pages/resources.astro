@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const resources = [
+  {
+    name: 'VS Code',
+    category: 'Editor',
+    description: 'Lightweight, powerful code editor with excellent extension ecosystem',
+    notes: 'My daily driver for all development',
+    url: 'https://code.visualstudio.com',
+  },
+  {
+    name: 'Astro',
+    category: 'Framework',
+    description: 'Modern web framework for building fast, content-driven websites',
+    notes: 'Perfect for blogs and static sites with dynamic features',
+    url: 'https://astro.build',
+  },
+  {
+    name: 'Tailwind CSS',
+    category: 'Styling',
+    description: 'Utility-first CSS framework for rapid UI development',
+    notes: 'Speeds up styling significantly with a thoughtful design system',
+    url: 'https://tailwindcss.com',
+  },
+  {
+    name: 'React',
+    category: 'Framework',
+    description: 'JavaScript library for building user interfaces with components',
+    notes: 'Essential for building interactive frontends',
+    url: 'https://react.dev',
+  },
+  {
+    name: 'TypeScript',
+    category: 'Language',
+    description: 'Typed superset of JavaScript for more robust code',
+    notes: 'Catches errors early and improves code maintainability',
+    url: 'https://www.typescriptlang.org',
+  },
+  {
+    name: 'Node.js',
+    category: 'Runtime',
+    description: 'JavaScript runtime for building server-side applications',
+    notes: 'Powers modern backend development',
+    url: 'https://nodejs.org',
+  },
+  {
+    name: 'Git',
+    category: 'Version Control',
+    description: 'Distributed version control system for tracking code changes',
+    notes: 'Essential for any development workflow',
+    url: 'https://git-scm.com',
+  },
+  {
+    name: 'Docker',
+    category: 'DevOps',
+    description: 'Containerization platform for consistent development environments',
+    notes: 'Makes deployment and scaling much easier',
+    url: 'https://www.docker.com',
+  },
+  {
+    name: 'Linux',
+    category: 'Operating System',
+    description: 'Open-source operating system for servers and development',
+    notes: 'My preferred environment for development',
+    url: 'https://www.linux.org',
+  },
+];
+
+// Group resources by category
+const groupedResources = resources.reduce(
+  (acc, resource) => {
+    if (!acc[resource.category]) {
+      acc[resource.category] = [];
+    }
+    acc[resource.category].push(resource);
+    return acc;
+  },
+  {} as Record<string, typeof resources>
+);
+
+// Get sorted categories
+const categories = Object.keys(groupedResources).sort();
+---
+
+<Layout
+  title="Resources | Jeremy Moore"
+  description="Tools, frameworks, and services I use and recommend for web development"
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Header Section -->
+    <section class="mb-12">
+      <h1 class="text-4xl font-bold text-light-text mb-4">Recommended Resources</h1>
+      <p class="text-lg text-gray-400">
+        Tools, frameworks, and services I use and recommend for web development
+      </p>
+    </section>
+
+    <!-- Resources by Category -->
+    {
+      categories.map((category) => (
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-accent-orange mb-6">{category}</h2>
+          <div class="space-y-4">
+            {groupedResources[category].map((resource) => (
+              <div class="p-6 bg-dark-lighter border border-gray-700 rounded-lg hover:border-accent-orange transition duration-200">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                  <h3 class="text-lg font-bold text-light-text">{resource.name}</h3>
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm bg-accent-orange text-dark font-semibold px-3 py-1 rounded hover:bg-orange-600 transition duration-200 whitespace-nowrap flex-shrink-0"
+                  >
+                    Visit
+                  </a>
+                </div>
+                <p class="text-gray-400 mb-3">{resource.description}</p>
+                {resource.notes && (
+                  <p class="text-sm italic text-accent-orange">
+                    💡 {resource.notes}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</Layout>
