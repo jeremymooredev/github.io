@@ -1,0 +1,135 @@
+---
+import { CATEGORIES } from '../config';
+
+interface Props {
+  selected?: string;
+}
+
+const { selected } = Astro.props;
+---
+
+<div class="category-filter">
+  <h2 class="category-heading">Categories</h2>
+
+  <div class="category-list">
+    <!-- All Posts button -->
+    <button
+      class={`category-button ${!selected ? 'active' : ''}`}
+      data-category="all"
+      aria-label="View all posts"
+    >
+      All Posts
+    </button>
+
+    <!-- Category buttons -->
+    {
+      CATEGORIES.map((category) => (
+        <button
+          class={`category-button ${selected === category ? 'active' : ''}`}
+          data-category={category}
+          aria-label={`Filter by ${category}`}
+        >
+          {category}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .category-filter {
+    width: 100%;
+  }
+
+  .category-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #b0b0b0;
+    margin: 0 0 16px 0;
+    padding: 0;
+  }
+
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .category-button {
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    border: 1px solid transparent;
+  }
+
+  .category-button:hover {
+    background-color: #252525;
+    color: #e0e0e0;
+  }
+
+  .category-button.active {
+    background-color: #ff9500;
+    color: #0f0f0f;
+    font-weight: 700;
+    border-color: #ff9500;
+  }
+
+  .category-button.active:hover {
+    background-color: #ffab1a;
+    border-color: #ffab1a;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 640px) {
+    .category-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .category-button {
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 80px;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.category-button');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        buttons.forEach((btn) => btn.classList.remove('active'));
+
+        // Add active class to clicked button
+        button.classList.add('active');
+
+        // You can add filtering logic here
+        const category = button.getAttribute('data-category');
+        console.log('Selected category:', category);
+
+        // Dispatch custom event for filtering
+        window.dispatchEvent(
+          new CustomEvent('categorySelected', {
+            detail: { category },
+          })
+        );
+      });
+    });
+  });
+</script>
