@@ -1,8 +1,6 @@
 ---
-import SearchInput from './SearchInput.astro';
 import NewsletterForm from './NewsletterForm.astro';
 import CategoryFilter from './CategoryFilter.astro';
-import SocialLinks from './SocialLinks.astro';
 
 interface Props {
   selected?: string;
@@ -13,27 +11,14 @@ const { selected } = Astro.props;
 
 <aside class="sidebar">
   <div class="sidebar-content">
-    <!-- Search -->
-    <div class="sidebar-section">
-      <SearchInput />
-    </div>
-
-    <!-- Newsletter -->
-    <div class="sidebar-section">
-      <NewsletterForm />
-    </div>
-
     <!-- Categories -->
     <div class="sidebar-section">
       <CategoryFilter selected={selected} />
     </div>
 
-    <!-- Social Links -->
+    <!-- Newsletter -->
     <div class="sidebar-section">
-      <div class="social-wrapper">
-        <h2 class="social-heading">Connect</h2>
-        <SocialLinks size="md" />
-      </div>
+      <NewsletterForm />
     </div>
   </div>
 </aside>
@@ -41,62 +26,33 @@ const { selected } = Astro.props;
 <style>
   .sidebar {
     width: 100%;
-    max-width: 100%;
   }
 
   .sidebar-content {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
   }
 
   .sidebar-section {
     width: 100%;
   }
 
-  .social-wrapper {
-    width: 100%;
-  }
-
-  .social-heading {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #b0b0b0;
-    margin: 0 0 16px 0;
-    padding: 0;
-  }
-
-  /* Desktop - sticky sidebar with fixed width (no scrolling) */
+  /* Desktop - sticky sidebar */
   @media (min-width: 1024px) {
     .sidebar {
-      width: 256px;
+      width: 220px;
       position: sticky;
-      top: 80px;
-      overflow: hidden;
+      top: 100px;
     }
 
     .sidebar-content {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
   }
 
-  /* Tablet - full width but responsive spacing */
-  @media (max-width: 1023px) and (min-width: 641px) {
-    .sidebar {
-      max-width: 100%;
-    }
-
-    .sidebar-content {
-      gap: 24px;
-    }
-  }
-
-  /* Mobile - full width, stacked layout */
-  @media (max-width: 640px) {
+  /* Mobile - full width */
+  @media (max-width: 1023px) {
     .sidebar {
       max-width: 100%;
     }

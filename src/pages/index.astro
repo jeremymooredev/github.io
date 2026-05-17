@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FeaturedCard from '../components/FeaturedCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import Sidebar from '../components/Sidebar.astro';
-import { formatDate, getReadingTime, extractExcerpt } from '../utils/formatting';
+import { formatDate, extractExcerpt } from '../utils/formatting';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts
@@ -14,17 +13,17 @@ const sortedPosts = allPosts.sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
 
-// Filter featured posts (first 3)
-const featured = sortedPosts.filter(post => post.data.featured).slice(0, 3);
-
-// Get recent posts (first 9)
-const recent = sortedPosts.slice(0, 9);
+// Get recent posts (first 10)
+const recent = sortedPosts.slice(0, 10).map(post => ({
+  ...post,
+  slug: post.id.replace(/\.md$/, '')
+}));
 ---
 
 <Layout title="Jeremy Moore | Web Dev & Linux Tips" description="Practical tips and how-tos for developers at all levels">
   <div class="max-w-6xl mx-auto px-4 py-12">
     <!-- Intro Section -->
-    <section class="mb-12 max-w-2xl">
+    <section class="mb-12 max-w-4xl">
       <h1 class="text-4xl sm:text-5xl font-bold text-light-text mb-4">
         Web Development & Linux Tips
       </h1>
@@ -33,34 +32,18 @@ const recent = sortedPosts.slice(0, 9);
       </p>
     </section>
 
-    <!-- Main Grid Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Left Column: Featured + Recent Posts -->
-      <div class="lg:col-span-2 max-w-2xl">
-        <!-- Featured Posts Section -->
-        {featured.length > 0 && (
-          <section class="mb-12">
-            <h2 class="text-2xl font-bold text-light-text mb-6">Featured</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {featured.map((post) => (
-                <FeaturedCard
-                  title={post.data.title}
-                  excerpt={post.data.excerpt || extractExcerpt(post.body)}
-                  date={post.data.date}
-                  category={post.data.category}
-                  image={post.data.image}
-                  slug={post.slug}
-                  readingTime={`${getReadingTime(post.body)} min read`}
-                />
-              ))}
-            </div>
-          </section>
-        )}
+    <!-- Main Grid Layout: Sidebar Left, Content Right -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Left Column: Sidebar -->
+      <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit">
+        <Sidebar />
+      </div>
 
-        <!-- Recent Posts Section -->
+      <!-- Right Column: Articles -->
+      <div class="lg:col-span-3">
+        <!-- Articles Section -->
         <section>
-          <h2 class="text-2xl font-bold text-light-text mb-6">Recent Posts</h2>
-          <div class="space-y-4">
+          <div class="space-y-6">
             {recent.map((post) => (
               <BlogCard
                 title={post.data.title}
@@ -69,17 +52,10 @@ const recent = sortedPosts.slice(0, 9);
                 category={post.data.category}
                 image={post.data.image}
                 slug={post.slug}
-                readingTime={`${getReadingTime(post.body)} min read`}
-                tags={post.data.tags}
               />
             ))}
           </div>
         </section>
-      </div>
-
-      <!-- Right Column: Sidebar -->
-      <div class="lg:col-span-1">
-        <Sidebar />
       </div>
     </div>
   </div>
