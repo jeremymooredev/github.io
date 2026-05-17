@@ -86,6 +86,12 @@
   }
 }
 
+/* Header fix - ensure solid background */
+header {
+  background-color: #1a1a1a !important;
+  backdrop-filter: none;
+}
+
 /* Custom components */
 @layer components {
   .container-custom {
