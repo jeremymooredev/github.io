@@ -16,22 +16,18 @@ const sortedPosts = allPosts.sort(
 
 <Layout title="Blog | Jeremy Moore" description="Web development tips, Linux guides, and DevOps insights">
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <!-- Page Title -->
-    <section class="mb-12 max-w-2xl">
-      <h1 class="text-4xl sm:text-5xl font-bold text-light-text mb-4">
-        Blog
-      </h1>
-      <p class="text-lg text-gray-400">
-        Exploring web development, Linux systems, and DevOps practices.
-      </p>
-    </section>
+    <!-- Main Grid Layout: Sidebar Left, Content Right (same as homepage) -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Left Column: Sidebar -->
+      <div class="lg:col-span-1 lg:sticky lg:top-24 h-fit">
+        <Sidebar />
+      </div>
 
-    <!-- Main Grid Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Left Column: Blog Posts -->
-      <div class="lg:col-span-2 max-w-2xl">
+      <!-- Right Column: Articles -->
+      <div class="lg:col-span-3">
+        <!-- Articles Section -->
         <section>
-          <div class="space-y-4">
+          <div class="space-y-6">
             {sortedPosts.map((post) => (
               <BlogCard
                 title={post.data.title}
@@ -52,11 +48,6 @@ const sortedPosts = allPosts.sort(
             </div>
           )}
         </section>
-      </div>
-
-      <!-- Right Column: Sidebar -->
-      <div class="lg:col-span-1">
-        <Sidebar />
       </div>
     </div>
   </div>
