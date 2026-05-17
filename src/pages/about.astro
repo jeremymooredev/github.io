@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+
+const skills = [
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Node.js',
+  'Python',
+  'Docker',
+  'Linux',
+  'AWS',
+  'Git',
+];
+---
+
+<Layout
+  title="About Jeremy Moore | Web Developer"
+  description="Learn about Jeremy Moore - a full-stack web developer passionate about sharing knowledge with other developers"
+>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <!-- Header Section -->
+    <section class="mb-8">
+      <h1 class="text-4xl font-bold text-light-text mb-4">About Me</h1>
+      <p class="text-lg text-gray-400">
+        Web developer, tech enthusiast, and educator
+      </p>
+    </section>
+
+    <!-- Who I Am Section -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold text-light-text mb-4">Who I Am</h2>
+      <p class="text-light-text leading-relaxed mb-4">
+        I'm Jeremy Moore, a full-stack web developer passionate about sharing
+        knowledge with other developers. With experience across frontend,
+        backend, and DevOps, I love breaking down complex concepts into
+        actionable tips.
+      </p>
+      <p class="text-light-text leading-relaxed">
+        Through this blog, I share practical tutorials, Linux tips, and web
+        development best practices. Whether you're just starting your coding
+        journey or looking to level up your skills, you'll find something
+        useful here.
+      </p>
+    </section>
+
+    <!-- My Skills Section -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold text-light-text mb-6">My Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        {
+          skills.map((skill) => (
+            <div class="px-4 py-2 bg-dark-lighter border border-gray-600 rounded text-center text-light-text hover:border-accent-orange transition duration-200">
+              {skill}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Let's Connect Section -->
+    <section>
+      <h2 class="text-2xl font-bold text-light-text mb-4">Let's Connect</h2>
+      <p class="text-light-text leading-relaxed mb-8">
+        Want to talk about web development, Linux, or anything else
+        tech-related? Reach out on social media or subscribe to my newsletter
+        for regular tips.
+      </p>
+
+      <!-- Newsletter Form -->
+      <div class="mb-8">
+        <NewsletterForm />
+      </div>
+
+      <!-- Social Links -->
+      <div class="mt-8 pt-8 border-t border-gray-700">
+        <h3 class="text-lg font-semibold text-light-text mb-4">Follow Me</h3>
+        <SocialLinks size="lg" showLabels={true} />
+      </div>
+    </section>
+  </div>
+</Layout>
