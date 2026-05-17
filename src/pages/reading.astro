@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const books = [
+  {
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    status: 'finished',
+    rating: 5,
+    notes: 'Essential reading for any developer. Changed how I think about code quality.',
+    year: 2008,
+  },
+  {
+    title: 'The Pragmatic Programmer',
+    author: 'David Thomas & Andrew Hunt',
+    status: 'finished',
+    rating: 5,
+    notes: 'Timeless advice on software development practices.',
+    year: 2019,
+  },
+  {
+    title: 'System Design Interview',
+    author: 'Alex Xu',
+    status: 'reading',
+    rating: undefined,
+    notes: 'Great reference for designing scalable systems.',
+    year: 2020,
+  },
+];
+
+// Filter books by status
+const readingBooks = books.filter((book) => book.status === 'reading');
+const finishedBooks = books.filter((book) => book.status === 'finished');
+
+// Helper function to render star rating
+const renderStars = (rating: number | undefined) => {
+  if (!rating) return '';
+  return '★'.repeat(rating);
+};
+---
+
+<Layout
+  title="My Reading List | Jeremy Moore"
+  description="Books I'm reading and have read"
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Header Section -->
+    <section class="mb-12">
+      <h1 class="text-4xl font-bold text-light-text mb-4">My Reading List</h1>
+      <p class="text-lg text-gray-400">
+        Books I'm reading and have read
+      </p>
+    </section>
+
+    <!-- Currently Reading Section -->
+    {
+      readingBooks.length > 0 && (
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-accent-orange mb-6">Currently Reading</h2>
+          <div class="space-y-6">
+            {readingBooks.map((book) => (
+              <div class="p-6 bg-dark-lighter border border-accent-orange rounded-lg">
+                <div class="flex items-start justify-between gap-4 mb-2">
+                  <h3 class="text-lg font-bold text-light-text">{book.title}</h3>
+                  <span class="text-xs bg-accent-orange text-dark font-semibold px-3 py-1 rounded whitespace-nowrap flex-shrink-0">
+                    Reading
+                  </span>
+                </div>
+                <p class="text-sm text-gray-400 mb-3">{book.author}</p>
+                {book.notes && (
+                  <p class="text-light-text italic text-gray-300">
+                    {book.notes}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Finished Books Section -->
+    {
+      finishedBooks.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold text-accent-orange mb-6">Finished</h2>
+          <div class="space-y-6">
+            {finishedBooks.map((book) => (
+              <div class="p-6 bg-dark-lighter border border-gray-700 rounded-lg hover:border-accent-orange transition duration-200">
+                <div class="flex items-start justify-between gap-4 mb-2">
+                  <h3 class="text-lg font-bold text-light-text">{book.title}</h3>
+                  {book.rating && (
+                    <span class="text-accent-orange font-bold whitespace-nowrap flex-shrink-0">
+                      {renderStars(book.rating)}
+                    </span>
+                  )}
+                </div>
+                <p class="text-sm text-gray-400 mb-3">
+                  {book.author} • {book.year}
+                </p>
+                {book.notes && (
+                  <p class="text-light-text text-gray-300">
+                    {book.notes}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </div>
+</Layout>
