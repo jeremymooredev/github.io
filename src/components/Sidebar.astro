@@ -68,32 +68,19 @@ const { selected } = Astro.props;
     padding: 0;
   }
 
-  /* Desktop - sticky sidebar with fixed width */
+  /* Desktop - sticky sidebar with fixed width (no scrolling) */
   @media (min-width: 1024px) {
     .sidebar {
       width: 256px;
       position: sticky;
-      top: 24px;
-      max-height: calc(100vh - 48px);
-      overflow-y: auto;
+      top: 80px;
+      overflow: hidden;
     }
 
-    /* Scrollbar styling for desktop sidebar */
-    .sidebar::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-      background: #333333;
-      border-radius: 3px;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb:hover {
-      background: #444444;
+    .sidebar-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
   }
 
