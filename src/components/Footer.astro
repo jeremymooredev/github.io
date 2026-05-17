@@ -1,0 +1,62 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { label: 'Blog', href: '/blog' },
+  { label: 'About', href: '/about' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Reading', href: '/reading' },
+];
+---
+
+<footer class="border-t border-dark-border bg-dark-lighter">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Main Footer Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <!-- Column 1: Site Info -->
+      <div>
+        <h3 class="text-xl font-bold text-light-text mb-4">{SITE_TITLE}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          {SITE_DESCRIPTION}. I share insights on web development, Linux tips, and DevOps practices to help developers build better applications and streamline their workflows.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold text-light-text mb-4">Quick Links</h3>
+        <nav class="flex flex-col gap-3">
+          {
+            quickLinks.map((link) => (
+              <a
+                href={link.href}
+                class="text-gray-400 hover:text-accent-orange transition duration-200 text-sm"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+
+      <!-- Column 3: Connect -->
+      <div>
+        <h3 class="text-lg font-bold text-light-text mb-4">Connect</h3>
+        <p class="text-gray-400 text-sm mb-4">
+          Follow along for the latest updates and insights.
+        </p>
+        <SocialLinks size="md" />
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div
+      class="border-t border-dark-border pt-8 text-center text-gray-400 text-sm"
+    >
+      <p>&copy; {currentYear} {SITE_TITLE}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
