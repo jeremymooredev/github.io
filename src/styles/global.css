@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* CSS Variables for custom colors */
+:root {
+  --color-dark: #0f0f0f;
+  --color-dark-lighter: #1a1a1a;
+  --color-dark-border: #333333;
+  --color-light-text: #e0e0e0;
+  --color-accent-orange: #ff9500;
+  color-scheme: dark;
+}
+
+/* Global base styles */
+@layer base {
+  html {
+    font-size: 18px;
+  }
+
+  body {
+    background-color: var(--color-dark);
+    color: var(--color-light-text);
+    line-height: 1.7;
+  }
+
+  a {
+    color: var(--color-accent-orange);
+    transition: text-decoration-color 0.2s;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-light-text);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  code {
+    background-color: var(--color-dark-lighter);
+    color: var(--color-accent-orange);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  }
+
+  pre {
+    background-color: var(--color-dark-lighter);
+    border: 1px solid var(--color-dark-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: var(--color-light-text);
+    padding: 0;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .container-custom {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card {
+    background-color: var(--color-dark-lighter);
+    border: 1px solid var(--color-dark-border);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent-orange);
+    color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--color-accent-orange);
+    color: var(--color-accent-orange);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-accent-orange);
+    color: var(--color-dark);
+  }
+}
