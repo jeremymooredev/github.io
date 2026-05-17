@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPost.astro';
+import { getReadingTime } from '../../utils/formatting';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => {
+    // Extract just the filename without extension as the slug
+    return {
+      params: { slug: post.id.replace(/\.\w+$/, '') },
+      props: { post },
+    };
+  });
+}
+
+interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+
+// Calculate reading time
+const readingTime = getReadingTime(post.body);
+
+// Parse the markdown body to extract headings
+// Look for markdown headings (## and ###)
+const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+const headings: any[] = [];
+let match;
+
+while ((match = headingRegex.exec(post.body)) !== null) {
+  const level = match[1].length;
+  const text = match[2];
+  const slug = text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  headings.push({
+    depth: level,
+    slug: slug,
+    text: text,
+  });
+}
+
+// Convert markdown to HTML
+// For proper markdown rendering, we'll use marked library if available
+// Otherwise, do basic conversion
+const convertMarkdownToHtml = (md: string): string => {
+  let html = md;
+
+  // Headers
+  html = html.replace(/^### (.*?)$/gm, '<h3 id="$1-id">$1</h3>');
+  html = html.replace(/^## (.*?)$/gm, '<h2 id="$1-id">$1</h2>');
+  html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
+
+  // Bold and italic
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
+  html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+
+  // Links
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+
+  // Inline code
+  html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+
+  // Line breaks
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = '<p>' + html + '</p>';
+
+  // Lists
+  html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*?<\/li>)/s, '<ul>$1</ul>');
+  html = html.replace(/^\- (.*?)$/gm, '<li>$1</li>');
+
+  // Code blocks
+  html = html.replace(/```(.*?)\n(.*?)```/gs, '<pre><code>$2</code></pre>');
+
+  // Blockquotes
+  html = html.replace(/^> (.*?)$/gm, '<blockquote>$1</blockquote>');
+
+  return html;
+};
+
+const htmlContent = convertMarkdownToHtml(post.body);
+
+// Get all posts for finding related ones
+const allPosts = await getCollection('blog');
+
+// Find related posts based on category or tags
+const relatedPosts = allPosts
+  .filter((p) => p.id !== post.id)
+  .filter(
+    (p) =>
+      p.data.category === post.data.category ||
+      p.data.tags.some((tag: string) => post.data.tags.includes(tag)),
+  )
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4)
+  .map((p) => ({
+    slug: p.id.replace(/\.\w+$/, ''),
+    data: {
+      title: p.data.title,
+      excerpt: p.data.excerpt,
+    },
+  }));
+---
+
+<BlogPostLayout
+  title={post.data.title}
+  description={post.data.description}
+  frontmatter={post.data}
+  headings={headings}
+  readingTime={`${readingTime} min read`}
+  relatedPosts={relatedPosts}
+>
+  <Fragment set:html={htmlContent} />
+</BlogPostLayout>

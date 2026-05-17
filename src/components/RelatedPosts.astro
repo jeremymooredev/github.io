@@ -1,0 +1,81 @@
+---
+interface RelatedPost {
+  slug: string;
+  data: {
+    title: string;
+    excerpt?: string;
+  };
+}
+
+interface Props {
+  posts: RelatedPost[];
+}
+
+const { posts } = Astro.props;
+
+// Limit to 4 posts
+const limitedPosts = posts.slice(0, 4);
+---
+
+{
+  limitedPosts.length > 0 && (
+    <div class="related-card">
+      <h3 class="related-heading">Related Posts</h3>
+      <ul class="related-list">
+        {limitedPosts.map((post) => (
+          <li class="related-item">
+            <a href={`/blog/${post.slug}`} class="related-link">
+              {post.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<style>
+  .related-card {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .related-heading {
+    color: #e0e0e0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem 0;
+  }
+
+  .related-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .related-item {
+    margin: 0;
+  }
+
+  .related-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  .related-link:hover {
+    color: #ff9500;
+  }
+</style>

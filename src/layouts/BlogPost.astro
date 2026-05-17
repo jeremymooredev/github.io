@@ -1,0 +1,494 @@
+---
+import Layout from './Layout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { formatDate } from '../utils/formatting';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface RelatedPost {
+  slug: string;
+  data: {
+    title: string;
+    excerpt?: string;
+  };
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  frontmatter: {
+    title: string;
+    description?: string;
+    date: Date;
+    author?: string;
+    category: string;
+    tags: string[];
+    image?: string;
+    excerpt?: string;
+  };
+  headings: Heading[];
+  readingTime?: string;
+  relatedPosts?: RelatedPost[];
+}
+
+const {
+  title,
+  description = '',
+  frontmatter,
+  headings = [],
+  readingTime,
+  relatedPosts = [],
+} = Astro.props;
+
+const pageTitle = `${frontmatter.title} | Jeremy Moore`;
+---
+
+<Layout title={pageTitle} description={description || frontmatter.description}>
+  <article class="blog-post-container">
+    <!-- Header Section -->
+    <header class="blog-header">
+      {
+        frontmatter.image && (
+          <div class="featured-image">
+            <img src={frontmatter.image} alt={frontmatter.title} />
+          </div>
+        )
+      }
+
+      <div class="header-content">
+        <h1 class="blog-title">{frontmatter.title}</h1>
+
+        <div class="blog-metadata">
+          <div class="metadata-group">
+            <time datetime={frontmatter.date.toISOString()} class="metadata-date">
+              {formatDate(frontmatter.date)}
+            </time>
+            {
+              readingTime && (
+                <>
+                  <span class="metadata-separator">•</span>
+                  <span class="metadata-reading-time">{readingTime}</span>
+                </>
+              )
+            }
+          </div>
+
+          <div class="metadata-badges">
+            <span class="category-badge">{frontmatter.category}</span>
+            {
+              frontmatter.tags.map((tag) => (
+                <span class="tag-badge">{tag}</span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+      <!-- Main Content -->
+      <main class="blog-content">
+        <div class="prose">
+          <slot />
+        </div>
+
+        <!-- Share Section -->
+        <section class="share-section">
+          <h2 class="share-heading">Share this post</h2>
+          <div class="share-buttons">
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                frontmatter.title,
+              )}&url=${encodeURIComponent(Astro.url.href)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="share-button share-twitter"
+              aria-label="Share on Twitter"
+            >
+              Twitter
+            </a>
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                Astro.url.href,
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="share-button share-linkedin"
+              aria-label="Share on LinkedIn"
+            >
+              LinkedIn
+            </a>
+            <button
+              class="share-button share-copy"
+              aria-label="Copy link to clipboard"
+              onclick={`
+                navigator.clipboard.writeText('${Astro.url.href}').then(() => {
+                  this.textContent = 'Copied!';
+                  setTimeout(() => { this.textContent = 'Copy Link'; }, 2000);
+                });
+              `}
+            >
+              Copy Link
+            </button>
+          </div>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section class="newsletter-section">
+          <NewsletterForm />
+        </section>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="blog-sidebar">
+        <TableOfContents headings={headings} />
+        <RelatedPosts posts={relatedPosts} />
+        <div class="social-section">
+          <h3 class="social-heading">Follow</h3>
+          <SocialLinks size="md" />
+        </div>
+      </aside>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .blog-post-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+
+  /* Header Section */
+  .blog-header {
+    margin-bottom: 3rem;
+  }
+
+  .featured-image {
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-content {
+    max-width: 50rem;
+  }
+
+  .blog-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #e0e0e0;
+    margin: 0 0 1rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .blog-title {
+      font-size: 3rem;
+    }
+  }
+
+  .blog-metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .metadata-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #b0b0b0;
+  }
+
+  .metadata-date {
+    font-weight: 500;
+  }
+
+  .metadata-separator {
+    color: #666666;
+  }
+
+  .metadata-reading-time {
+    font-weight: 500;
+  }
+
+  .metadata-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .category-badge {
+    display: inline-block;
+    background: #ff9500;
+    color: #0f0f0f;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tag-badge {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #b0b0b0;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #333333;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* Content Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  /* Main Content */
+  .blog-content {
+    min-width: 0;
+  }
+
+  .prose {
+    color: #c0c0c0;
+    line-height: 1.8;
+  }
+
+  /* Prose element styling */
+  :global(.prose h2) {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 6rem;
+  }
+
+  :global(.prose h3) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+
+  :global(.prose p) {
+    margin-bottom: 1rem;
+  }
+
+  :global(.prose ul),
+  :global(.prose ol) {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  :global(.prose li) {
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.prose a) {
+    color: #ff9500;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+
+  :global(.prose a:hover) {
+    color: #ffab1a;
+  }
+
+  :global(.prose code) {
+    background: #1a1a1a;
+    color: #ff9500;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875em;
+  }
+
+  :global(.prose pre) {
+    background: #0f0f0f;
+    border: 1px solid #333333;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+  }
+
+  :global(.prose pre code) {
+    background: none;
+    color: #b0b0b0;
+    padding: 0;
+  }
+
+  :global(.prose blockquote) {
+    border-left: 4px solid #ff9500;
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    color: #b0b0b0;
+    font-style: italic;
+  }
+
+  :global(.prose img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  :global(.prose table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  :global(.prose th),
+  :global(.prose td) {
+    border: 1px solid #333333;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  :global(.prose th) {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    font-weight: 600;
+  }
+
+  /* Share Section */
+  .share-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333333;
+  }
+
+  .share-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0 0 1rem 0;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .share-button {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    border: 1px solid #333333;
+    border-radius: 0.375rem;
+    background: transparent;
+    color: #b0b0b0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .share-button:hover {
+    border-color: #ff9500;
+    color: #ff9500;
+    background: rgba(255, 149, 0, 0.05);
+  }
+
+  /* Newsletter Section */
+  .newsletter-section {
+    margin-top: 3rem;
+  }
+
+  /* Sidebar */
+  .blog-sidebar {
+    position: relative;
+  }
+
+  /* Social Section */
+  .social-section {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .social-heading {
+    color: #e0e0e0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem 0;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .blog-post-container {
+      padding: 2rem 1rem;
+    }
+
+    .blog-header {
+      margin-bottom: 2rem;
+    }
+
+    .blog-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-post-container {
+      padding: 1.5rem 1rem;
+    }
+
+    .blog-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-title {
+      font-size: 1.5rem;
+    }
+
+    .share-buttons {
+      flex-direction: column;
+    }
+
+    .share-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
