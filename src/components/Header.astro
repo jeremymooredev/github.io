@@ -20,38 +20,43 @@ const isActive = (href: string): boolean => {
 };
 ---
 
-<header class="sticky top-0 z-50 bg-dark border-b border-dark-border">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-    <!-- Logo -->
-    <a
-      href="/"
-      class="text-2xl font-bold text-light-text hover:text-accent-orange transition duration-200"
-    >
-      Jeremy Moore
-    </a>
+<header class="sticky top-0 z-50 bg-dark-lighter border-b border-dark-border shadow-lg shadow-black/40">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="text-xl sm:text-2xl font-bold text-light-text hover:text-accent-orange transition-colors duration-200 flex-shrink-0"
+      >
+        Jeremy Moore
+      </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex gap-8">
-      {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            class={`transition duration-200 ${
-              isActive(item.href)
-                ? 'text-accent-orange font-semibold'
-                : 'text-light-text hover:text-accent-orange'
-            }`}
-          >
-            {item.label}
-          </a>
-        ))
-      }
-    </nav>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class={`text-sm font-medium transition-colors duration-200 ${
+                isActive(item.href)
+                  ? 'text-accent-orange'
+                  : 'text-light-text hover:text-accent-orange'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
 
-    <!-- Mobile Hamburger Menu -->
-    <button class="md:hidden text-light-text hover:text-accent-orange transition duration-200">
-      ☰
-    </button>
-  </div>
+      <!-- Mobile Hamburger Menu -->
+      <button
+        class="md:hidden text-light-text hover:text-accent-orange transition-colors duration-200 text-xl"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+    </div>
+  </nav>
 </header>
 

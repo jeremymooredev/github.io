@@ -1,0 +1,54 @@
+<h2>Homepage Layout Options</h2>
+<p class="subtitle">How should the featured posts and blog list work together?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Stacked (Featured → Blog List)</h3>
+      <p>Minimal header, featured cards in a grid below, then full blog posts list with category filter</p>
+      <div class="mockup" style="margin-top: 12px; padding: 12px; background: #1a1a1a; border-radius: 4px; font-size: 12px; color: #888;">
+        <div style="padding: 8px; border-bottom: 1px solid #333;">Logo + Nav (Home, Blog, About, Resources, Reading)</div>
+        <div style="padding: 8px; border-bottom: 1px solid #333; color: #ccc;">Brief intro text</div>
+        <div style="padding: 8px; border-bottom: 1px solid #333; color: #ff9500;">Featured Posts (3 cards in row)</div>
+        <div style="padding: 8px; color: #ccc;">Category filter • Recent blog posts</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Sidebar Layout (Categories on Side)</h3>
+      <p>Two-column: featured cards and blog on left, category/tag sidebar on right for filtering</p>
+      <div class="mockup" style="margin-top: 12px; padding: 12px; background: #1a1a1a; border-radius: 4px; font-size: 12px; color: #888;">
+        <div style="padding: 8px; border-bottom: 1px solid #333;">Logo + Nav</div>
+        <div style="display: flex; gap: 8px;">
+          <div style="flex: 1; padding: 8px; border-right: 1px solid #333;">
+            <div style="color: #ff9500;">Featured (3 cards)</div>
+            <div style="margin-top: 8px; color: #ccc;">Blog posts list</div>
+          </div>
+          <div style="width: 25%; padding: 8px; color: #888;">Categories/Tags sidebar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Integrated (Featured Mixed In)</h3>
+      <p>Featured posts tagged visually but mixed into the main blog feed—no separate section</p>
+      <div class="mockup" style="margin-top: 12px; padding: 12px; background: #1a1a1a; border-radius: 4px; font-size: 12px; color: #888;">
+        <div style="padding: 8px; border-bottom: 1px solid #333;">Logo + Nav</div>
+        <div style="padding: 8px; border-bottom: 1px solid #333; color: #ccc;">Brief intro + category filter</div>
+        <div style="padding: 8px; color: #ccc;">
+          <div style="padding: 6px; background: #ff9500; color: #000; margin-bottom: 8px; border-radius: 2px;">★ Featured post 1</div>
+          <div style="padding: 6px; margin-bottom: 8px;">Regular post 2</div>
+          <div style="padding: 6px; background: #ff9500; color: #000; margin-bottom: 8px; border-radius: 2px;">★ Featured post 3</div>
+          <div style="padding: 6px;">Regular post 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

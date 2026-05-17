@@ -1,0 +1,139 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Jeremy Moore" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Blog" [ref=e7] [cursor=pointer]:
+          - /url: /blog
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Resources" [ref=e9] [cursor=pointer]:
+          - /url: /resources
+        - link "Reading" [ref=e10] [cursor=pointer]:
+          - /url: /reading
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Blog" [level=1] [ref=e14]
+        - paragraph [ref=e15]: Exploring web development, Linux systems, and DevOps practices.
+      - generic [ref=e16]:
+        - generic [ref=e19]:
+          - link [ref=e20] [cursor=pointer]:
+            - /url: /blog/undefined
+            - article [ref=e21]:
+              - img "Tailwind CSS Best Practices" [ref=e23]
+              - generic [ref=e24]:
+                - generic [ref=e25]:
+                  - heading "Tailwind CSS Best Practices" [level=3] [ref=e26]
+                  - generic [ref=e27]: Frontend
+                - paragraph [ref=e28]: Master Tailwind CSS and build beautiful, responsive interfaces with confidence.
+                - generic [ref=e29]:
+                  - generic [ref=e30]: January 19, 2025
+                  - generic [ref=e31]: •
+                  - generic [ref=e32]: 3 min read
+                - generic [ref=e33]:
+                  - generic [ref=e34]: tailwind
+                  - generic [ref=e35]: css
+                  - generic [ref=e36]: frontend
+                  - generic [ref=e37]: styling
+          - link [ref=e38] [cursor=pointer]:
+            - /url: /blog/undefined
+            - article [ref=e39]:
+              - img "Getting Started with Astro 6" [ref=e41]
+              - generic [ref=e42]:
+                - generic [ref=e43]:
+                  - heading "Getting Started with Astro 6" [level=3] [ref=e44]
+                  - generic [ref=e45]: Web Dev
+                - paragraph [ref=e46]: Discover the power of Astro 6 for building content-heavy websites with minimal JavaScript overhead.
+                - generic [ref=e47]:
+                  - generic [ref=e48]: January 14, 2025
+                  - generic [ref=e49]: •
+                  - generic [ref=e50]: 3 min read
+                - generic [ref=e51]:
+                  - generic [ref=e52]: astro
+                  - generic [ref=e53]: frontend
+                  - generic [ref=e54]: javascript
+                  - generic [ref=e55]: ssr
+        - complementary [ref=e57]:
+          - generic [ref=e58]:
+            - generic [ref=e60]:
+              - textbox "Search" [ref=e61]:
+                - /placeholder: Search posts...
+              - img
+            - generic [ref=e64]:
+              - heading "Get web dev & Linux tips" [level=2] [ref=e65]
+              - paragraph [ref=e66]: New tips delivered to your inbox every week
+              - generic [ref=e67]:
+                - textbox "Email address" [ref=e68]:
+                  - /placeholder: Enter your email
+                - button "Subscribe" [ref=e69] [cursor=pointer]
+              - generic [ref=e70]: Check your inbox!
+            - generic [ref=e72]:
+              - heading "Categories" [level=2] [ref=e73]
+              - generic [ref=e74]:
+                - button "View all posts" [ref=e75] [cursor=pointer]: All Posts
+                - button "Filter by Web Dev" [ref=e76] [cursor=pointer]: Web Dev
+                - button "Filter by Linux" [ref=e77] [cursor=pointer]: Linux
+                - button "Filter by DevOps" [ref=e78] [cursor=pointer]: DevOps
+                - button "Filter by Frontend" [ref=e79] [cursor=pointer]: Frontend
+                - button "Filter by Backend" [ref=e80] [cursor=pointer]: Backend
+                - button "Filter by Tools" [ref=e81] [cursor=pointer]: Tools
+            - generic [ref=e83]:
+              - heading "Connect" [level=2] [ref=e84]
+              - generic [ref=e85]:
+                - link "GitHub" [ref=e86] [cursor=pointer]:
+                  - /url: https://github.com/yourusername
+                  - img [ref=e87]
+                - link "Twitter" [ref=e89] [cursor=pointer]:
+                  - /url: https://twitter.com/yourusername
+                  - img [ref=e90]
+                - link "LinkedIn" [ref=e92] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/yourusername
+                  - img [ref=e93]
+  - contentinfo [ref=e96]:
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - heading "Jeremy Moore" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Web Development & Linux Tips for Developers. I share insights on web development, Linux tips, and DevOps practices to help developers build better applications and streamline their workflows.
+        - generic [ref=e102]:
+          - heading "Quick Links" [level=3] [ref=e103]
+          - navigation [ref=e104]:
+            - link "Blog" [ref=e105] [cursor=pointer]:
+              - /url: /blog
+            - link "About" [ref=e106] [cursor=pointer]:
+              - /url: /about
+            - link "Resources" [ref=e107] [cursor=pointer]:
+              - /url: /resources
+            - link "Reading" [ref=e108] [cursor=pointer]:
+              - /url: /reading
+        - generic [ref=e109]:
+          - heading "Connect" [level=3] [ref=e110]
+          - paragraph [ref=e111]: Follow along for the latest updates and insights.
+          - generic [ref=e112]:
+            - link "GitHub" [ref=e113] [cursor=pointer]:
+              - /url: https://github.com/yourusername
+              - img [ref=e114]
+            - link "Twitter" [ref=e116] [cursor=pointer]:
+              - /url: https://twitter.com/yourusername
+              - img [ref=e117]
+            - link "LinkedIn" [ref=e119] [cursor=pointer]:
+              - /url: https://linkedin.com/in/yourusername
+              - img [ref=e120]
+      - paragraph [ref=e124]: © 2026 Jeremy Moore. All rights reserved.
+  - generic [ref=e127]:
+    - button "Menu" [ref=e128]:
+      - img [ref=e130]
+      - generic: Menu
+    - button "Inspect" [ref=e134]:
+      - img [ref=e136]
+      - generic: Inspect
+    - button "Audit" [ref=e138]:
+      - img [ref=e140]
+      - generic: Audit
+    - button "Settings" [ref=e143]:
+      - img [ref=e145]
+      - generic: Settings

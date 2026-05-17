@@ -1,0 +1,145 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Jeremy Moore" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Blog" [ref=e7] [cursor=pointer]:
+          - /url: /blog
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Resources" [ref=e9] [cursor=pointer]:
+          - /url: /resources
+        - link "Reading" [ref=e10] [cursor=pointer]:
+          - /url: /reading
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Recommended Resources" [level=1] [ref=e14]
+        - paragraph [ref=e15]: Tools, frameworks, and services I use and recommend for web development
+      - generic [ref=e16]:
+        - heading "DevOps" [level=2] [ref=e17]
+        - generic [ref=e19]:
+          - generic [ref=e20]:
+            - heading "Docker" [level=3] [ref=e21]
+            - link "Visit" [ref=e22] [cursor=pointer]:
+              - /url: https://www.docker.com
+          - paragraph [ref=e23]: Containerization platform for consistent development environments
+          - paragraph [ref=e24]: 💡 Makes deployment and scaling much easier
+      - generic [ref=e25]:
+        - heading "Editor" [level=2] [ref=e26]
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - heading "VS Code" [level=3] [ref=e30]
+            - link "Visit" [ref=e31] [cursor=pointer]:
+              - /url: https://code.visualstudio.com
+          - paragraph [ref=e32]: Lightweight, powerful code editor with excellent extension ecosystem
+          - paragraph [ref=e33]: 💡 My daily driver for all development
+      - generic [ref=e34]:
+        - heading "Framework" [level=2] [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e38]:
+              - heading "Astro" [level=3] [ref=e39]
+              - link "Visit" [ref=e40] [cursor=pointer]:
+                - /url: https://astro.build
+            - paragraph [ref=e41]: Modern web framework for building fast, content-driven websites
+            - paragraph [ref=e42]: 💡 Perfect for blogs and static sites with dynamic features
+          - generic [ref=e43]:
+            - generic [ref=e44]:
+              - heading "React" [level=3] [ref=e45]
+              - link "Visit" [ref=e46] [cursor=pointer]:
+                - /url: https://react.dev
+            - paragraph [ref=e47]: JavaScript library for building user interfaces with components
+            - paragraph [ref=e48]: 💡 Essential for building interactive frontends
+      - generic [ref=e49]:
+        - heading "Language" [level=2] [ref=e50]
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - heading "TypeScript" [level=3] [ref=e54]
+            - link "Visit" [ref=e55] [cursor=pointer]:
+              - /url: https://www.typescriptlang.org
+          - paragraph [ref=e56]: Typed superset of JavaScript for more robust code
+          - paragraph [ref=e57]: 💡 Catches errors early and improves code maintainability
+      - generic [ref=e58]:
+        - heading "Operating System" [level=2] [ref=e59]
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - heading "Linux" [level=3] [ref=e63]
+            - link "Visit" [ref=e64] [cursor=pointer]:
+              - /url: https://www.linux.org
+          - paragraph [ref=e65]: Open-source operating system for servers and development
+          - paragraph [ref=e66]: 💡 My preferred environment for development
+      - generic [ref=e67]:
+        - heading "Runtime" [level=2] [ref=e68]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - heading "Node.js" [level=3] [ref=e72]
+            - link "Visit" [ref=e73] [cursor=pointer]:
+              - /url: https://nodejs.org
+          - paragraph [ref=e74]: JavaScript runtime for building server-side applications
+          - paragraph [ref=e75]: 💡 Powers modern backend development
+      - generic [ref=e76]:
+        - heading "Styling" [level=2] [ref=e77]
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - heading "Tailwind CSS" [level=3] [ref=e81]
+            - link "Visit" [ref=e82] [cursor=pointer]:
+              - /url: https://tailwindcss.com
+          - paragraph [ref=e83]: Utility-first CSS framework for rapid UI development
+          - paragraph [ref=e84]: 💡 Speeds up styling significantly with a thoughtful design system
+      - generic [ref=e85]:
+        - heading "Version Control" [level=2] [ref=e86]
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - heading "Git" [level=3] [ref=e90]
+            - link "Visit" [ref=e91] [cursor=pointer]:
+              - /url: https://git-scm.com
+          - paragraph [ref=e92]: Distributed version control system for tracking code changes
+          - paragraph [ref=e93]: 💡 Essential for any development workflow
+  - contentinfo [ref=e94]:
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - heading "Jeremy Moore" [level=3] [ref=e98]
+          - paragraph [ref=e99]: Web Development & Linux Tips for Developers. I share insights on web development, Linux tips, and DevOps practices to help developers build better applications and streamline their workflows.
+        - generic [ref=e100]:
+          - heading "Quick Links" [level=3] [ref=e101]
+          - navigation [ref=e102]:
+            - link "Blog" [ref=e103] [cursor=pointer]:
+              - /url: /blog
+            - link "About" [ref=e104] [cursor=pointer]:
+              - /url: /about
+            - link "Resources" [ref=e105] [cursor=pointer]:
+              - /url: /resources
+            - link "Reading" [ref=e106] [cursor=pointer]:
+              - /url: /reading
+        - generic [ref=e107]:
+          - heading "Connect" [level=3] [ref=e108]
+          - paragraph [ref=e109]: Follow along for the latest updates and insights.
+          - generic [ref=e110]:
+            - link "GitHub" [ref=e111] [cursor=pointer]:
+              - /url: https://github.com/yourusername
+              - img [ref=e112]
+            - link "Twitter" [ref=e114] [cursor=pointer]:
+              - /url: https://twitter.com/yourusername
+              - img [ref=e115]
+            - link "LinkedIn" [ref=e117] [cursor=pointer]:
+              - /url: https://linkedin.com/in/yourusername
+              - img [ref=e118]
+      - paragraph [ref=e122]: © 2026 Jeremy Moore. All rights reserved.
+  - generic [ref=e125]:
+    - button "Menu" [ref=e126]:
+      - img [ref=e128]
+      - generic: Menu
+    - button "Inspect" [ref=e132]:
+      - img [ref=e134]
+      - generic: Inspect
+    - button "Audit" [ref=e136]:
+      - img [ref=e138]
+      - generic: Audit
+    - button "Settings" [ref=e141]:
+      - img [ref=e143]
+      - generic: Settings
