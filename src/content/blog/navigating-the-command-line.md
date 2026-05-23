@@ -1,25 +1,14 @@
 ---
 title: "Navigating the Command Line"
 description: "Moving around on the command line"
-date: 2025-01-15
+date: 2025-05-23
 author: Jeremy Moore
-category: Web Dev
-tags: []
+category: Terminal
+tags: [cli, terminal]
 featured: true
-# image: /images/astro-cover.jpg
-excerpt: Discover the power of Astro 6 for building content-heavy websites with minimal JavaScript overhead.
+image: /images/terminal-cover.svg
+excerpt: "Master the command line with essential navigation tips and tricks for developers."
 ---
- <!-- --- -->
-<!-- layout: ../../layouts/PageLayout.astro -->
-<!-- title: "Navigating the Command Line" -->
-<!-- public: true -->
-<!-- description: "Moving around on the command line" -->
-<!-- slug: "navigating-the-command-line" -->
-<!-- publicationDate: 2025-04-27 -->
-<!-- category: "dev" -->
-<!-- author: "Jeremy Moore" -->
-<!-- --- -->
-# Navigating the Command Line
 
 ## Basic Directory Navigation
 

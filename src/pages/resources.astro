@@ -3,11 +3,60 @@ import Layout from '../layouts/Layout.astro';
 
 const resources = [
   {
+    name: 'Claude',
+    category: 'AI',
+    description: "Anthropic's AI assistant — available via web, API, and Claude Code CLI",
+    notes: 'My primary AI for coding, writing, and problem-solving',
+    url: 'https://claude.ai',
+  },
+  {
+    name: 'CodeBurn',
+    category: 'AI',
+    description: 'Tracks token usage, cost, and performance across 19 AI coding tools',
+    notes: 'Useful for seeing where you spend the most AI usage',
+    url: 'https://github.com/getagentseal/codeburn',
+  },
+  {
+    name: 'Firefox Developer Edition',
+    category: 'Browser',
+    description: 'Firefox build tailored for developers with advanced DevTools and experimental features',
+    notes: 'My browser of choice for web development and testing',
+    url: 'https://www.mozilla.org/en-US/firefox/developer',
+  },
+  {
+    name: 'Docker',
+    category: 'DevOps',
+    description: 'Containerization platform for consistent development environments',
+    notes: 'Makes deployment and scaling much easier',
+    url: 'https://www.docker.com',
+  },
+  {
     name: 'VS Code',
     category: 'Editor',
     description: 'Lightweight, powerful code editor with excellent extension ecosystem',
-    notes: 'My daily driver for all development',
+    notes: 'Rock-solid editor with a massive extension ecosystem',
     url: 'https://code.visualstudio.com',
+  },
+  {
+    name: 'Cursor',
+    category: 'Editor',
+    description: 'AI-powered code editor built on VS Code with deep model integration',
+    notes: 'My primary editor for AI-assisted development',
+    url: 'https://www.cursor.com',
+  },
+  {
+    name: 'Zed',
+    category: 'Editor',
+    description: 'High-performance, multiplayer code editor built in Rust',
+    notes: 'Blazing fast with a minimal, distraction-free interface',
+    url: 'https://zed.dev',
+  },
+  {
+    name: 'Sublime Text 3',
+    category: 'Editor',
+    description: 'Sophisticated text editor for code, markup, and prose',
+    notes: 'Still my go-to for quick edits and large file viewing',
+    url: 'https://www.sublimetext.com',
   },
   {
     name: 'Astro',
@@ -15,13 +64,6 @@ const resources = [
     description: 'Modern web framework for building fast, content-driven websites',
     notes: 'Perfect for blogs and static sites with dynamic features',
     url: 'https://astro.build',
-  },
-  {
-    name: 'Tailwind CSS',
-    category: 'Styling',
-    description: 'Utility-first CSS framework for rapid UI development',
-    notes: 'Speeds up styling significantly with a thoughtful design system',
-    url: 'https://tailwindcss.com',
   },
   {
     name: 'React',
@@ -38,25 +80,25 @@ const resources = [
     url: 'https://www.typescriptlang.org',
   },
   {
-    name: 'Node.js',
-    category: 'Runtime',
-    description: 'JavaScript runtime for building server-side applications',
-    notes: 'Powers modern backend development',
-    url: 'https://nodejs.org',
+    name: 'PHP',
+    category: 'Language',
+    description: 'Typed superset of JavaScript for more robust code',
+    notes: 'Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.',
+    url: 'https://www.php.net',
   },
   {
-    name: 'Git',
-    category: 'Version Control',
-    description: 'Distributed version control system for tracking code changes',
-    notes: 'Essential for any development workflow',
-    url: 'https://git-scm.com',
+    name: 'Laravel',
+    category: 'Framework',
+    description: 'Typed superset of JavaScript for more robust code',
+    notes: 'Web application framework with expressive, elegant syntax',
+    url: 'https://www.laravel.com',
   },
   {
-    name: 'Docker',
-    category: 'DevOps',
-    description: 'Containerization platform for consistent development environments',
-    notes: 'Makes deployment and scaling much easier',
-    url: 'https://www.docker.com',
+    name: 'Obsidian',
+    category: 'Notes',
+    description: 'Knowledge base and note-taking app that works on top of local Markdown files',
+    notes: 'Powers my second brain — everything lives here',
+    url: 'https://obsidian.md',
   },
   {
     name: 'Linux',
@@ -65,88 +107,332 @@ const resources = [
     notes: 'My preferred environment for development',
     url: 'https://www.linux.org',
   },
-  // AI Resources
   {
-    name: 'CodeBurn',
-    category: 'AI',
-    description: 'CodeBurn tracks token usage, cost, and performance across 19 AI coding tools',
-    notes: 'Provides some nice information for where you are spending the most usage',
-    url: 'https://github.com/getagentseal/codeburn'
+    name: 'Tailwind CSS',
+    category: 'Styling',
+    description: 'Utility-first CSS framework for rapid UI development',
+    notes: 'Speeds up styling significantly with a thoughtful design system',
+    url: 'https://tailwindcss.com',
   },
-  // AI Skills
+  {
+    name: 'WezTerm',
+    category: 'Terminal',
+    description: 'GPU-accelerated terminal emulator and multiplexer written in Rust',
+    notes: 'Highly configurable with a powerful Lua-based config',
+    url: 'https://wezfurlong.org/wezterm',
+  },
+  {
+    name: 'Git',
+    category: 'Version Control',
+    description: 'Distributed version control system for tracking code changes',
+    notes: 'Essential for any development workflow',
+    url: 'https://git-scm.com',
+  },
 ];
 
-// Group resources by category
-const groupedResources = resources.reduce(
-  (acc, resource) => {
-    if (!acc[resource.category]) {
-      acc[resource.category] = [];
-    }
-    acc[resource.category].push(resource);
+function slugify(s: string) {
+  return s.toLowerCase().replace(/\s+/g, '-');
+}
+
+const grouped = resources.reduce(
+  (acc, r) => {
+    if (!acc[r.category]) acc[r.category] = [];
+    acc[r.category].push(r);
     return acc;
   },
   {} as Record<string, typeof resources>
 );
 
-// Get sorted categories
-const categories = Object.keys(groupedResources).sort();
+const categories = Object.keys(grouped).sort();
 ---
 
 <Layout
   title="Resources | Jeremy Moore"
   description="Tools, frameworks, and services I use and recommend for web development"
 >
-  <div class="max-w-4xl mx-auto px-4 py-12">
-    <!-- Header Section -->
-    <section class="mb-12">
-      <h1 class="text-4xl font-bold text-light-text mb-4">Recommended Resources</h1>
-      <p class="text-lg text-gray-400">
-        Tools, frameworks, and services I use and recommend for web development
-      </p>
-    </section>
+  <div class="resources-container">
+    <header class="resources-header">
+      <h1>Resources</h1>
+      <p class="resources-subtitle">Tools and resources for web development, Linux, and DevOps</p>
+      <div class="current-stack">
+        <span class="stack-currently">Currently using</span>
+        <span class="stack-sep">·</span>
+        <span class="stack-group"><span class="stack-cat">IDE</span> VS Code, Cursor, Zed</span>
+        <span class="stack-sep">·</span>
+        <span class="stack-group"><span class="stack-cat">Browser</span> Firefox Developer Edition</span>
+        <span class="stack-sep">·</span>
+        <span class="stack-group"><span class="stack-cat">AI</span> Claude, Cursor</span>
+        <span class="stack-sep">·</span>
+        <span class="stack-group"><span class="stack-cat">OS</span> MacOS, Ubuntu</span>
+      </div>
+    </header>
 
-    <!-- Resources by Category -->
-    {
-      categories.map((category) => (
-        <section class="mb-10">
-          <h2 class="text-xl font-bold text-light-text mb-4 px-4 py-2 rounded" style="background-color: #252525;">{category}</h2>
-          <div>
-            {groupedResources[category].map((resource, index) => (
-              <>
-                <div class="py-4">
-                  <div class="flex items-center gap-3 mb-1">
-                    <a
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-base font-semibold text-accent-orange hover:text-orange-400 transition duration-200"
-                    >
-                      {resource.name}
-                    </a>
-                    <a
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-xs bg-accent-orange text-dark font-semibold px-2 py-0.5 rounded hover:bg-orange-600 transition duration-200"
-                    >
-                      Link
-                    </a>
+    <p class="affiliate-notice">
+      Some links on this page may be affiliate links. If you purchase through them, I may earn a small commission — at no extra cost to you.
+    </p>
+
+    <div class="content-grid">
+      <main class="resources-main">
+        {
+          categories.map((category) => (
+            <section id={slugify(category)} class="category-section">
+              <h2 class="category-heading">{category}</h2>
+              <div class="resource-list">
+                {grouped[category].map((resource) => (
+                  <div class="resource-item">
+                    <div class="resource-title-row">
+                      <a
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resource-name"
+                      >
+                        {resource.name}
+                        <span class="resource-arrow">↗</span>
+                      </a>
+                      <span class="resource-desc">{resource.description}</span>
+                    </div>
+                    {resource.notes && (
+                      <p class="resource-notes">{resource.notes}</p>
+                    )}
                   </div>
-                  <p class="text-gray-400 text-sm mb-2">{resource.description}</p>
-                  {resource.notes && (
-                    <p class="text-xs text-accent-orange">
-                      💡 {resource.notes}
-                    </p>
-                  )}
-                </div>
-                {index < groupedResources[category].length - 1 && (
-                  <hr class="border-dark-border my-0" />
-                )}
-              </>
-            ))}
-          </div>
-        </section>
-      ))
-    }
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </main>
+
+      <aside class="resources-sidebar">
+        <div class="nav-card">
+          <h3 class="nav-heading">Categories</h3>
+          <nav>
+            <ul class="nav-list">
+              {
+                categories.map((category) => (
+                  <li>
+                    <a href={`#${slugify(category)}`} class="nav-link">
+                      {category}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
+      </aside>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .resources-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .resources-container {
+      padding: 3rem 2rem;
+    }
+  }
+
+  .resources-header {
+    padding-left: .5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .resources-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    margin: 0 0 0.35rem 0;
+  }
+
+  .resources-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+  }
+
+  /* Current stack — inline inside header */
+  .current-stack {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .stack-currently {
+    color: #444;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .stack-sep {
+    font-weight: bolder;
+    color: #333;
+  }
+
+  .stack-group {
+    color: #888;
+  }
+
+  .stack-cat {
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.68rem;
+    margin-right: 0.3rem;
+  }
+
+  /* Affiliate disclaimer */
+  .affiliate-notice {
+    font-size: 0.72rem;
+    color: #444;
+    margin: 0 0 1.75rem 0;
+    font-style: italic;
+  }
+
+  /* Two-column grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr 13rem;
+      gap: 3rem;
+    }
+  }
+
+  /* Main content */
+  .resources-main {
+    min-width: 0;
+  }
+
+  .category-section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 5rem;
+  }
+
+  .category-heading {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.75rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .resource-item {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .resource-item:last-child {
+    border-bottom: none;
+  }
+
+  .resource-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .resource-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ff9500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+  }
+
+  .resource-name:hover {
+    color: #ffab40;
+  }
+
+  .resource-arrow {
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .resource-desc {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .resource-notes {
+    font-size: 0.78rem;
+    color: #666;
+    margin: 0.2rem 0 0 0;
+    font-style: italic;
+  }
+
+  /* Sidebar */
+  .resources-sidebar {
+    position: relative;
+  }
+
+  .nav-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    position: sticky;
+    top: 5rem;
+  }
+
+  .nav-heading {
+    color: #e0e0e0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .nav-link {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    text-decoration: none;
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .nav-link:hover {
+    color: #ff9500;
+    background: rgba(255, 149, 0, 0.06);
+  }
+</style>

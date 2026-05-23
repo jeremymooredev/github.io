@@ -10,6 +10,7 @@ const blog = defineCollection({
     date: z.coerce.date(),
     author: z.string().default('Jeremy Moore'),
     category: z.enum([
+      'Terminal',
       'Web Dev',
       'Linux',
       'DevOps',

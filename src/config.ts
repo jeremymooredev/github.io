@@ -7,9 +7,9 @@ export const SITE_TITLE = 'Jeremy Moore';
 export const SITE_DESCRIPTION = 'Web Development & Linux Tips for Developers';
 
 export const SOCIAL_LINKS = {
-  github: 'https://github.com/yourusername',
-  twitter: 'https://twitter.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
+  github: 'https://github.com/jeremymooredev',
+  twitter: 'https://x.com/JeremyMooreDev',
+  linkedin: 'https://www.linkedin.com/in/jeremymoore1/',
 };
 
 export const NEWSLETTER_CTA = {
@@ -29,6 +29,7 @@ export const kitFormUrl = `https://${KIT_EMBED_HOST}/${KIT_FORM_UID}`;
 export const kitEmbedSrc = `${kitFormUrl}/index.js`;
 
 export const CATEGORIES = [
+  'Terminal',
   'Web Dev',
   'Linux',
   'DevOps',

@@ -6,7 +6,8 @@ author: Jeremy Moore
 category: Frontend
 tags: [tailwind, css, frontend, styling]
 featured: false
-image: /images/tailwind-cover.jpg
+draft: false
+image: /images/frontend-cover.svg
 excerpt: Master Tailwind CSS and build beautiful, responsive interfaces with confidence.
 ---
 

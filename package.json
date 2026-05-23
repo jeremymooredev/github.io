@@ -1,5 +1,22 @@
 {
-  "name": "",
+  "name": "jeremymoore-dev",
+  "description": "Personal website and blog for Jeremy Moore",
+  "author": "Jeremy Moore",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremymoore/jeremymoore-dev.git"
+  },
+  "homepage": "https://jeremymoore.dev",
+  "keywords": [
+    "website",
+    "blog",
+    "portfolio",
+    "personal website"
+  ],
+  "bugs": {
+    "url": "https://github.com/jeremymoore/jeremymoore-dev/issues"
+  },
   "type": "module",
   "version": "0.0.1",
   "engines": {

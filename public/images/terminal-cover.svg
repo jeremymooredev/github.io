@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#059669"/>
+  <rect width="1200" height="630" fill="url(#g1)" opacity="0.3"/>
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <text x="600" y="280" font-size="120" font-weight="bold" text-anchor="middle" fill="white" font-family="sans-serif">Terminal</text>
+  <text x="600" y="370" font-size="48" text-anchor="middle" fill="white" opacity="0.9" font-family="sans-serif">Command Line Tips</text>
+</svg>

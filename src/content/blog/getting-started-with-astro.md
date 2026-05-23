@@ -2,11 +2,12 @@
 title: Getting Started with Astro 6
 description: Learn how to build fast, modern websites with Astro 6
 date: 2025-01-15
+draft: false
 author: Jeremy Moore
 category: Web Dev
 tags: [astro, frontend, javascript, ssr]
 featured: true
-image: /images/astro-cover.jpg
+image: /images/web-dev-cover.svg
 excerpt: Discover the power of Astro 6 for building content-heavy websites with minimal JavaScript overhead.
 ---
 
