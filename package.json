@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremymoore/jeremymoore-dev.git"
+    "url": "https://github.com/jeremymooredev/github.io.git"
   },
   "homepage": "https://jeremymoore.dev",
   "keywords": [
@@ -15,7 +15,7 @@
     "personal website"
   ],
   "bugs": {
-    "url": "https://github.com/jeremymoore/jeremymoore-dev/issues"
+    "url": "https://github.com/jeremymooredev/github.io/issues"
   },
   "type": "module",
   "version": "0.0.1",
@@ -29,6 +29,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.3.3"
   },
   "devDependencies": {

@@ -5,12 +5,16 @@
 
 export const SITE_TITLE = 'Jeremy Moore';
 export const SITE_DESCRIPTION = 'Web Development & Linux Tips for Developers';
+export const THRIFTBOOKS_URL = 'https://www.thriftbooks.com/share/?code=5NS%252bUfKz0EyShW6gzUWrEw%253d%253d'
 
 export const SOCIAL_LINKS = {
   github: 'https://github.com/jeremymooredev',
   twitter: 'https://x.com/JeremyMooreDev',
   linkedin: 'https://www.linkedin.com/in/jeremymoore1/',
 };
+
+/** ThriftBooks ReadingRewards — update if your referral link changes */
+export const THRIFTBOOKS_URL = 'https://www.thriftbooks.com/readingrewards/';
 
 export const NEWSLETTER_CTA = {
   headline: 'Get web dev & Linux tips',
