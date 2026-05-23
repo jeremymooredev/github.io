@@ -1,0 +1,547 @@
+{
+  "reading_list": [
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "published": 2018,
+      "pages": 320,
+      "genres": ["Habits", "Self Help"],
+      "isbn": "0735211299",
+      "purchased": "2024-07-01",
+      "status": "completed",
+      "reading_period": {
+        "finished": "2024-07-14"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0735211299-L.jpg"
+    },
+    {
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "published": 2016,
+      "pages": 304,
+      "genres": ["Business", "Self Help"],
+      "isbn": "9780349413686",
+      "purchased": "2024-07-01",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-08-03",
+        "finished": "2024-08-13"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/9780349413686-L.jpg"
+    },
+    {
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "published": 2020,
+      "pages": 256,
+      "genres": ["Money"],
+      "isbn": "0857197681",
+      "purchased": "2024-07-09",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-08-13",
+        "finished": "2024-08-17"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0857197681-L.jpg"
+    },
+    {
+      "title": "Feel Good Productivity",
+      "author": "Ali Abdaal",
+      "published": 2023,
+      "pages": 270,
+      "genres": ["Self Help"],
+      "isbn": "1847943748",
+      "purchased": "2024-07-01",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-08-17",
+        "finished": "2024-08-21"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1847943748-L.jpg"
+    },
+    {
+      "title": "Getting Things Done",
+      "author": "David Allen",
+      "published": 2015,
+      "pages": 352,
+      "genres": ["Time Management"],
+      "isbn": "0143126563",
+      "purchased": "2024-07-01",
+      "status": "completed",
+      "reading_period": {
+        "finished": "2024-08-31"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0143126563-L.jpg"
+    },
+    {
+      "title": "Storyworthy",
+      "author": "Matthew Dicks",
+      "published": 2018,
+      "pages": 368,
+      "genres": ["Business"],
+      "isbn": "1608685489",
+      "purchased": "2024-07-01",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-08-23",
+        "finished": "2024-09-08"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1608685489-L.jpg"
+    },
+    {
+      "title": "The 4-Hour Work Week",
+      "author": "Timothy Ferriss",
+      "published": 2009,
+      "pages": 448,
+      "genres": ["Leadership", "Motivational", "Time Management"],
+      "isbn": "0307465357",
+      "purchased": "2024-07-14",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-09-14",
+        "finished": "2024-09-21"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0307465357-L.jpg"
+    },
+    {
+      "title": "Million Dollar Weekend",
+      "author": "Noah Kagan",
+      "published": 2024,
+      "pages": 204,
+      "genres": ["Business", "Entrepreneurship", "Self Help"],
+      "isbn": "059353977X",
+      "purchased": "2024-09-12",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-09-21",
+        "finished": "2024-09-22"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/059353977X-L.jpg"
+    },
+    {
+      "title": "The Mythical Man-Month",
+      "author": "Frederick P. Brooks Jr.",
+      "published": 1995,
+      "pages": 291,
+      "genres": ["IT", "Leadership"],
+      "isbn": "0201835959",
+      "purchased": "2024-09-17",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-09-28",
+        "finished": "2024-10-08"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0201835959-L.jpg"
+    },
+    {
+      "title": "The 7 Habits of Highly Effective People",
+      "author": "Stephen R. Covey",
+      "published": 2004,
+      "pages": 319,
+      "genres": ["Communication", "Leadership", "Self Help"],
+      "isbn": "0743269519",
+      "purchased": "2024-09-17",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-10-01",
+        "finished": "2024-10-23"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0743269519-L.jpg"
+    },
+    {
+      "title": "Get It Done",
+      "author": "Ayelet Fishbach",
+      "published": 2023,
+      "pages": 304,
+      "genres": ["Motivational", "Psychology", "Self Help"],
+      "isbn": "0316538361",
+      "purchased": "2024-09-12",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-10-24",
+        "finished": "2024-11-10"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0316538361-L.jpg"
+    },
+    {
+      "title": "Purple Cow",
+      "author": "Seth Godin",
+      "published": 2003,
+      "pages": 137,
+      "genres": ["Business", "Marketing"],
+      "isbn": "159184021X",
+      "purchased": "2024-10-25",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-11-11",
+        "finished": "2024-11-15"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/159184021X-L.jpg"
+    },
+    {
+      "title": "The 4 Disciplines of Execution",
+      "author": "Chris McChesney",
+      "published": 2022,
+      "pages": 336,
+      "genres": ["Business", "Leadership", "Motivational"],
+      "isbn": "1982156988",
+      "purchased": "2024-08-09",
+      "status": "completed",
+      "reading_period": {
+        "started": "2024-11-25",
+        "finished": "2025-01-19"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1982156988-L.jpg"
+    },
+    {
+      "title": "The E-Myth Revisited",
+      "author": "Michael E. Gerber",
+      "published": 2004,
+      "pages": 288,
+      "genres": ["Business", "Goal Setting", "Leadership", "Marketing"],
+      "isbn": "0887307280",
+      "purchased": "2024-10-25",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-02-09",
+        "finished": "2025-02-21"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0887307280-L.jpg"
+    },
+    {
+      "title": "Essentialism",
+      "author": "Greg McKeown",
+      "published": 2020,
+      "pages": 304,
+      "genres": ["Business", "Self Help", "Time Management"],
+      "isbn": "0804137404",
+      "purchased": "2024-09-12",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-02-22",
+        "finished": "2025-03-11"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0804137404-L.jpg"
+    },
+    {
+      "title": "Peopleware",
+      "author": "Tom DeMarco, Timothy Lister",
+      "published": 1987,
+      "pages": 188,
+      "genres": ["Business", "IT"],
+      "isbn": "0932633056",
+      "purchased": "2025-02-16",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-03-16",
+        "finished": "2025-03-29"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0932633056-L.jpg"
+    },
+    {
+      "title": "The Secret Handshake",
+      "author": "Kathleen Kelley Reardon",
+      "published": 2000,
+      "pages": 250,
+      "genres": ["Business", "Leadership"],
+      "isbn": "0385495277",
+      "purchased": "2025-03-15",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-04-06",
+        "finished": "2025-04-22"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0385495277-L.jpg"
+    },
+    {
+      "title": "The Lean Startup",
+      "author": "Eric Ries",
+      "published": 2011,
+      "pages": 336,
+      "genres": ["Business", "Leadership"],
+      "isbn": "0307887898",
+      "purchased": "2024-10-25",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-04-23",
+        "finished": "2025-05-25"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0307887898-L.jpg"
+    },
+    {
+      "title": "Little Bets",
+      "author": "Peter Sims",
+      "published": 2013,
+      "pages": 224,
+      "genres": ["Business", "Decision Making/Problem Solving", "Motivational"],
+      "isbn": "1439170436",
+      "purchased": null,
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-06-11",
+        "finished": "2025-06-21"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1439170436-L.jpg"
+    },
+    {
+      "title": "YouTube Secrets",
+      "author": "Benji Travis, Sean Cannell",
+      "published": 2018,
+      "pages": 194,
+      "genres": ["Business", "Economics", "YouTube"],
+      "isbn": "1544511817",
+      "purchased": "2025-06-21",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-06-29",
+        "finished": "2025-07-11"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1544511817-L.jpg"
+    },
+    {
+      "title": "The 11 Immutable Laws of Internet Branding",
+      "author": "Al Ries, Laura Ries",
+      "published": 2000,
+      "pages": 192,
+      "genres": ["Advertising", "Business", "Technology"],
+      "isbn": "0060196211",
+      "purchased": "2025-05-23",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-07-14",
+        "finished": "2025-07-24"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0060196211-L.jpg"
+    },
+    {
+      "title": "The One Thing",
+      "author": "Gary Keller, Jay Papasan",
+      "published": 2013,
+      "pages": 240,
+      "genres": ["Personal Development", "Self Help", "Time Management"],
+      "isbn": "9781885167774",
+      "purchased": "2025-04-11",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-08-04",
+        "finished": "2025-08-22"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/9781885167774-L.jpg"
+    },
+    {
+      "title": "Start with Why",
+      "author": "Simon Sinek",
+      "published": 2011,
+      "pages": 255,
+      "genres": ["Business", "Leadership", "Self Help"],
+      "isbn": "1591846447",
+      "purchased": "2024-12-09",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-08-26",
+        "finished": "2025-09-22"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1591846447-L.jpg"
+    },
+    {
+      "title": "The 12 Week Year",
+      "author": "Brian P. Moran, Michael Lennington",
+      "published": 2013,
+      "pages": 208,
+      "genres": ["Business", "Goal Setting", "Personal Development", "Time Management"],
+      "isbn": "1118509234",
+      "purchased": "2025-09-06",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-09-22",
+        "finished": "2025-10-02"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1118509234-L.jpg"
+    },
+    {
+      "title": "Do More Great Work",
+      "author": "Michael Bungay Stanier, Michael Port, Seth Godin",
+      "published": 2010,
+      "pages": 200,
+      "genres": ["Goal Setting", "Leadership", "Time Management", "Work Life Balance"],
+      "isbn": "0761156445",
+      "purchased": "2025-09-06",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-10-02",
+        "finished": "2025-10-07"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0761156445-L.jpg"
+    },
+    {
+      "title": "Measure What Matters",
+      "author": "John Doerr",
+      "published": 2018,
+      "pages": 320,
+      "genres": ["Business", "Psychology"],
+      "isbn": "0525536221",
+      "purchased": "2025-07-30",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-10-13",
+        "finished": "2025-10-31"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0525536221-L.jpg"
+    },
+    {
+      "title": "Good to Great",
+      "author": "James C. Collins",
+      "published": 2001,
+      "pages": 320,
+      "genres": ["Business", "Leadership"],
+      "isbn": "0066620996",
+      "purchased": "2025-03-15",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-10-31",
+        "finished": "2025-11-25"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0066620996-L.jpg"
+    },
+    {
+      "title": "Never Split the Difference",
+      "author": "Chris Voss, Tahl Raz",
+      "published": 2017,
+      "pages": 288,
+      "genres": ["Business", "Psychology", "Self Help"],
+      "isbn": "1847941494",
+      "purchased": "2025-06-13",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-11-26",
+        "finished": "2025-12-25"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1847941494-L.jpg"
+    },
+    {
+      "title": "Building a Second Brain",
+      "author": "Tiago Forte",
+      "published": 2022,
+      "pages": 272,
+      "genres": ["Business", "Self Help"],
+      "isbn": "1982167386",
+      "purchased": "2025-12-08",
+      "status": "completed",
+      "reading_period": {
+        "started": "2026-01-02",
+        "finished": "2026-01-12"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1982167386-L.jpg"
+    },
+    {
+      "title": "Digital Minimalism",
+      "author": "Cal Newport",
+      "published": 2019,
+      "pages": 304,
+      "genres": ["Business", "Motivational", "Self Help"],
+      "isbn": "0525536515",
+      "purchased": "2024-09-12",
+      "status": "completed",
+      "reading_period": {
+        "started": "2026-01-12",
+        "finished": "2026-01-29"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0525536515-L.jpg"
+    },
+    {
+      "title": "The Innovator's Dilemma",
+      "author": "Clayton M. Christensen",
+      "published": 1997,
+      "pages": 256,
+      "genres": ["Business", "Decision Making/Problem Solving", "Leadership", "Management"],
+      "isbn": "0875845851",
+      "purchased": "2025-06-07",
+      "status": "completed",
+      "reading_period": {
+        "started": "2026-02-02",
+        "finished": "2026-03-05"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0875845851-L.jpg"
+    },
+    {
+      "title": "Linchpin",
+      "author": "Seth Godin",
+      "published": 2010,
+      "pages": 256,
+      "genres": ["Professional Development"],
+      "isbn": "1591843162",
+      "purchased": "2025-03-15",
+      "status": "completed",
+      "reading_period": {
+        "started": "2026-03-09",
+        "finished": "2026-03-27"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1591843162-L.jpg"
+    },
+    {
+      "title": "Execution",
+      "author": "Larry Bossidy, Ram Charan",
+      "published": 2022,
+      "pages": 320,
+      "genres": ["Business"],
+      "isbn": "0609610570",
+      "purchased": "2026-02-15",
+      "status": "completed",
+      "reading_period": {
+        "started": "2026-03-30",
+        "finished": "2026-04-14"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0609610570-L.jpg"
+    },
+    {
+      "title": "The Dip",
+      "author": "Seth Godin",
+      "published": 2007,
+      "pages": 96,
+      "genres": ["Business", "Economics", "Professional Development", "Self Help"],
+      "isbn": "1591841666",
+      "purchased": "2026-03-29",
+      "status": "completed",
+      "reading_period": {
+        "started": "2026-04-15",
+        "finished": "2026-04-16"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/1591841666-L.jpg"
+    },
+    {
+      "title": "Crossing the Chasm",
+      "author": "Geoffrey A. Moore",
+      "published": 2006,
+      "pages": 227,
+      "genres": ["Advertising", "Business", "Sales"],
+      "isbn": "0060517123",
+      "purchased": "2025-07-30",
+      "status": "completed",
+      "reading_period": {
+        "started": "2025-08-12",
+        "finished": "2026-04-26"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/0060517123-L.jpg"
+    },
+    {
+      "title": "Influencer",
+      "author": "David Maxfield, Joseph Grenny, Kerry Patterson",
+      "published": 2007,
+      "pages": 288,
+      "genres": ["Communication"],
+      "isbn": "007148499X",
+      "purchased": "2025-03-15",
+      "status": "reading",
+      "reading_period": {
+        "started": "2025-11-25"
+      },
+      "cover": "https://covers.openlibrary.org/b/isbn/007148499X-L.jpg"
+    }
+  ],
+  "metadata": {
+    "total_books": 36,
+    "completed": 35,
+    "reading": 1,
+    "generated_date": "2026-05-23"
+  }
+}
