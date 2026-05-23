@@ -51,7 +51,13 @@ const {
 const pageTitle = `${frontmatter.title} | Jeremy Moore`;
 ---
 
-<Layout title={pageTitle} description={description || frontmatter.description}>
+<Layout
+  title={pageTitle}
+  description={description || frontmatter.description}
+  image={frontmatter.image}
+  type="article"
+  publishedTime={frontmatter.date}
+>
   <article class="blog-post-container">
     <!-- Header Section -->
     <header class="blog-header">

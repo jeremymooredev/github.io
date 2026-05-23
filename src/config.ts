@@ -12,6 +12,9 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/jeremymoore1/',
 };
 
+/** ThriftBooks ReadingRewards — update if your referral link changes */
+export const THRIFTBOOKS_URL = 'https://www.thriftbooks.com/share/?code=5NS%252bUfKz0EyShW6gzUWrEw%253d%253d'
+
 export const NEWSLETTER_CTA = {
   headline: 'Get web dev & Linux tips',
   description: 'New tips delivered to your inbox',

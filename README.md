@@ -1,46 +1,32 @@
-# Astro Starter Kit: Basics
+# jeremymoore.dev
+
+Personal blog and portfolio for Jeremy Moore — web development, Linux, and DevOps tips.
+
+Built with [Astro](https://astro.build), styled with [Tailwind CSS v4](https://tailwindcss.com), and deployed to GitHub Pages.
+
+## Development
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev      # localhost:4321
+npm run build    # production build → ./dist/
+npm run preview  # preview the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Environment
 
-## 🚀 Project Structure
+Copy `.env.example` to `.env` for local Kit.com newsletter embed settings. GitHub Actions uses repository variables for production:
 
-Inside of your Astro project, you'll see the following folders and files:
+- `PUBLIC_SITE_URL` — e.g. `https://jeremymoore.dev`
+- `PUBLIC_BASE_PATH` — `/` for custom domain
+- `PUBLIC_KIT_FORM_UID`, `PUBLIC_KIT_EMBED_HOST` — newsletter modal
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Content
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Blog posts live in `src/content/blog/` as Markdown
+- Set `draft: true` in frontmatter to hide a post from production builds (still visible in dev)
+- Reading list data is in `development-reading-list.json`
 
-## 🧞 Commands
+## Deploy
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Pushes to `main` trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`. Enable GitHub Pages with source **GitHub Actions** and configure the variables above.

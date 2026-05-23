@@ -3,13 +3,24 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SiteScripts from '../components/SiteScripts.astro';
+import SeoHead from '../components/SeoHead.astro';
+import { withBase } from '../utils/paths';
 
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	type?: 'website' | 'article';
+	publishedTime?: Date;
 }
 
-const { title = 'Jeremy Moore', description = 'Web Dev & Linux Tips' } = Astro.props;
+const {
+	title = 'Jeremy Moore',
+	description = 'Web Dev & Linux Tips',
+	image,
+	type = 'website',
+	publishedTime,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -18,10 +29,16 @@ const { title = 'Jeremy Moore', description = 'Web Dev & Linux Tips' } = Astro.p
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<SeoHead
+			title={title}
+			description={description}
+			image={image}
+			type={type}
+			publishedTime={publishedTime}
+		/>
 
 		<!-- Google Fonts: Inter and Fira Code -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,4 +57,3 @@ const { title = 'Jeremy Moore', description = 'Web Dev & Linux Tips' } = Astro.p
 		<SiteScripts />
 	</body>
 </html>
-
