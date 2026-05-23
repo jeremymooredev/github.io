@@ -1,7 +1,16 @@
-import type { CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { CATEGORIES } from '../config';
 
 type BlogEntry = CollectionEntry<'blog'>;
+
+/** Drafts are visible in dev; excluded from production builds and listings. */
+export function isPublished(entry: BlogEntry): boolean {
+  return import.meta.env.DEV || !entry.data.draft;
+}
+
+export async function getPublishedPosts(): Promise<BlogEntry[]> {
+  return getCollection('blog', isPublished);
+}
 
 /** Categories that appear on at least one post, in config order. */
 export function getActiveCategories(posts: BlogEntry[]): string[] {
