@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Astro-based personal blog and portfolio site for Jeremy Moore focused on web development, Linux, and DevOps content. The site uses Astro's content collections to manage blog posts, resources, and a reading list, with Tailwind CSS v4 for styling.
+This is an Astro-based personal blog and portfolio site for Jeremy Moore focused on web development, Linux, and DevOps content. The site uses Astro's content collections to manage blog posts, with Tailwind CSS v4 for styling.
 
 ## Development Commands
 
@@ -21,13 +21,13 @@ All commands run from the repository root:
 
 ### Content Collections (`src/content.config.ts`)
 
-Three main content collections power the site:
+One active content collection:
 
-- **Blog** (`src/content/blog/`): Markdown posts with schema including title, description, date, author, category, tags, featured flag, and optional image/excerpt. Categories are: Web Dev, Linux, DevOps, Frontend, Backend, Tools.
-- **Resources** (`src/content/resources/index.json`): JSON-based curated links with name, description, category, URL, and optional notes.
-- **Reading** (`src/content/reading/index.json`): JSON-based reading list tracking books with author, status (reading/finished), optional rating, notes, year, cover image, and purchase link.
+- **Blog** (`src/content/blog/`): Markdown posts with schema including title, description, date, author, category, tags, featured flag, and optional image/excerpt. Categories are: Terminal, Web Dev, Linux, DevOps, Frontend, Backend, Tools.
 
-Each collection uses Astro's loader API—blog uses `glob()` for markdown discovery, resources and reading use `file()` to load from JSON.
+The blog collection uses Astro's `glob()` loader for markdown discovery.
+
+> **Note:** The `resources` and `reading` Astro collections are commented out in `content.config.ts`. Those pages (`resources.astro`, `reading.astro`) use their own data sources instead — `resources.astro` has hardcoded inline data, and `reading.astro` imports from `development-reading-list.json` at the project root.
 
 ### Page Structure
 
@@ -37,9 +37,8 @@ Each collection uses Astro's loader API—blog uses `glob()` for markdown discov
 
 ### Layout Hierarchy
 
-- **Base layout** (`src/layouts/Base.astro`): Root HTML with metadata, global CSS, font loading (Inter and Fira Code), dark theme setup
-- **Layout** (`src/layouts/Layout.astro`): Header + footer wrapper (used by most pages)
-- **BlogPost layout** (`src/layouts/BlogPost.astro`): Blog-specific layout with post metadata, TOC, reading time
+- **Layout** (`src/layouts/Layout.astro`): Root HTML shell with metadata, SEO (`SeoHead`), Google Analytics, global CSS, font loading (Inter and Fira Code), header, footer, and site scripts. Used by most pages.
+- **BlogPost layout** (`src/layouts/BlogPost.astro`): Wraps `Layout.astro` with blog-specific post metadata, TOC, reading time, and related posts
 
 ### Components
 
